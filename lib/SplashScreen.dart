@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_app/MyHomePage.dart';
+import 'package:weather_app/PermissionScreen.dart';
+
+import 'main.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -13,12 +13,25 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    Future.delayed(
+        const Duration(seconds: 2),
+        () => {
+              if (havePermission())
+                {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PermissionScreen()))
+                }
+              else
+                {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyHomePage()))
+                }
+            });
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         Container(
@@ -38,17 +51,21 @@ class _SplashScreenState extends State<SplashScreen> {
                 image: AssetImage('icons/cloud-sun.png'),
               ),
               Padding(padding: EdgeInsets.only(top: 15.0)),
-              Text(widget.title,
+              Text(Strings.appTitle,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(fontSize: 40.0, color: Colors.white, fontWeight: FontWeight.w600))),
+                      textStyle: TextStyle(
+                          fontSize: 40.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600))),
               Padding(padding: EdgeInsets.only(top: 5.0)),
               Text('Aplikacja do monitorowania \n pogody i jakości powietrza',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.w500))),
+                      textStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500))),
             ],
           ),
         ),
@@ -61,10 +78,16 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Text("Ładowanie...",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.w300))),
+                      textStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300))),
             ))
       ]),
     );
+  }
+
+  bool havePermission() {
+    return true;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/PermissionScreen.dart';
 
 import 'MyHomePage.dart';
 import 'SplashScreen.dart';
@@ -9,17 +10,20 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  String _title = 'Weather App';
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
+      title: Strings.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(title: _title),
+      home: SplashScreen(),
     );
   }
+}
+
+class Strings {
+  static const String appTitle = 'Weather App';
 }
