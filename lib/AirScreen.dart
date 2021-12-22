@@ -22,7 +22,7 @@ class _AirScreenState extends State<AirScreen> {
               gradient: LinearGradient(
                   begin: Alignment.centerRight,
                   end: Alignment.centerLeft,
-                  colors: [Color(0xff6671e5), Color(0xff4852d9)])),
+                  colors: [Color(0xff4acf8c), Color(0xff75eda6)])),
         ),
         Align(
           alignment: FractionalOffset.center,

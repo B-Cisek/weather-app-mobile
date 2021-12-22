@@ -23,10 +23,16 @@ class _MyHomePageState extends State<MyHomePage> {
         children: screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black38,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        iconSize: 38,
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Pogoda'),
+          BottomNavigationBarItem(icon: Icon(Icons.wb_cloudy_outlined), label: 'Pogoda'),
           BottomNavigationBarItem(icon: Icon(Icons.air_rounded), label: 'Powietrze'),
         ],
       ),
