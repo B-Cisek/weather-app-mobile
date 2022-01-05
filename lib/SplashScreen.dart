@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // Pobieranie danych openweathermap.org
   void executeOnceAfterBuild() async {
-    WeatherFactory wf = new WeatherFactory("5fe72a5e5cffddd2e43c01d6adb9f61e", language: Language.POLISH);
+    WeatherFactory wf = new WeatherFactory("b9b26b0a2dc98163b8412c022f815653", language: Language.POLISH);
     Weather w = await wf.currentWeatherByCityName("New York");
     log(w.toJson().toString());
 
