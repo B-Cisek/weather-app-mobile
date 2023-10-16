@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // Pobieranie danych openweathermap.org
   void executeOnceAfterBuild() async {
-    WeatherFactory wf = new WeatherFactory("b9b26b0a2dc98163b8412c022f815653", language: Language.POLISH);
+    WeatherFactory wf = new WeatherFactory("*********", language: Language.POLISH);
     Weather w = await wf.currentWeatherByCityName("New York");
     log(w.toJson().toString());
 
@@ -103,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     String _endpoint = 'https://api.waqi.info/feed/';
     var keyword = 'geo:$lat;$lon';
-    var key = '23b9dbb9ec81066f3d86004fb6363e9ae385ddaa';
+    var key = '********';
     String url = '$_endpoint/$keyword/?token=$key';
 
     http.Response response = await http.get(Uri.parse(url));
